@@ -1,0 +1,78 @@
+<div class="text-center">
+    <div class="card">
+        <h2 class="card-header">Current real time situation of the COVID-19 patients reported in Sri Lanka</h2>
+    </div>
+</div>
+<div *ngIf="success">
+    <h4 class="text-center m-4">Last updated on : {{details.update_date_time}}</h4>
+</div>
+
+<div style="margin-left: 400px; width: 500px; ">
+    <canvas baseChart [data]="demodoughnutChartData" [colors]="doughnutChartColors" [labels]="doughnutChartLabels"
+        [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>
+</div>
+
+<div *ngIf="success">
+    <div class="card-deck text-center" style="margin: 50px">
+        <div class="card text-white bg-info mb-3" style="max-width: 18rem; ">
+            <div class="card-header">Local Total Cases</div>
+            <div class="card-body">
+                <h5 class="card-title text-center font-weight-bold">{{details.local_total_cases}}</h5>
+            </div>
+        </div>
+        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+            <div class="card-header">Local Deaths</div>
+            <div class="card-body">
+                <h5 class="card-title text-center font-weight-bold">{{details.local_deaths}}</h5>
+            </div>
+        </div>
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            <div class="card-header">Local Recovered Cases</div>
+            <div class="card-body">
+                <h5 class="card-title text-center font-weight-bold">{{details.local_recovered}}</h5>
+            </div>
+        </div>
+        <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+            <div class="card-header">Local Active Cases</div>
+            <div class="card-body">
+                <h5 class="card-title text-center font-weight-bold">{{details.local_active_cases}}</h5>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card-deck text-center" style="margin-left:368px">
+            <div class="card bg-light mb-3" style="max-width: 18rem; ">
+                <div class="card-header">Local New Cases</div>
+                <div class="card-body">
+                    <h5 class="card-title text-center font-weight-bold">{{details.local_new_cases}}</h5>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Local Total Number Of Individuals In Hospitals</div>
+                <div class="card-body">
+                    <h5 class="card-title text-center font-weight-bold">
+                        {{details.local_total_number_of_individuals_in_hospitals}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <h4 class="text-center m-3">Daily COVID-19 patients in Sri Lanka</h4>
+</div>
+
+<div style="width:65% ; margin: 0px 0px 100px 250px;">
+    <canvas baseChart [chartType]="'bar'" [datasets]="chartData" [labels]="labels" [colors]="colors"
+        (chartClick)="chartClicked($event)">
+    </canvas>
+</div>
+
+<div class="text-center">
+    <div class="card">
+        <h6 class="mt-2">Developed by Malith Kalhara - (DataSource - <span style="text-decoration: underline;"><a
+            href="https://hpb.health.gov.lk/en/api-documentation">https://hpb.health.gov.lk/en/api-documentation</a>)
+    </span></h6>
+    </div>
+</div>
