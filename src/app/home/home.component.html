@@ -7,7 +7,7 @@
     <h4 class="text-center m-4">Last updated on : {{details.update_date_time}}</h4>
 </div>
 
-<div style="margin-left: 400px; width: 500px; ">
+<div style=" width: 500px; ">
     <canvas baseChart [data]="demodoughnutChartData" [colors]="doughnutChartColors" [labels]="doughnutChartLabels"
         [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
         (chartClick)="chartClicked($event)"></canvas>
@@ -41,7 +41,7 @@
         </div>
     </div>
     <div>
-        <div class="card-deck text-center" style="margin-left:368px">
+        <div class="card-deck text-center" >
             <div class="card bg-light mb-3" style="max-width: 18rem; ">
                 <div class="card-header">Local New Cases</div>
                 <div class="card-body">
@@ -63,7 +63,7 @@
     <h4 class="text-center m-3">Daily COVID-19 patients in Sri Lanka</h4>
 </div>
 
-<div style="width:65% ; margin: 0px 0px 100px 250px;">
+<div style="width:85% ;">
     <canvas baseChart [chartType]="'bar'" [datasets]="chartData" [labels]="labels" [colors]="colors"
         (chartClick)="chartClicked($event)">
     </canvas>
